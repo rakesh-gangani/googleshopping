@@ -24,7 +24,7 @@ class RSquare_GoogleShoppingFeed_Model_Datafeed extends Mage_Core_Model_Abstract
     // Google Data Feed
     protected function _prepareFeed(){
         $free_shipping  	=   Mage::getStoreConfig('carriers/freeshipping/free_shipping_subtotal');
-        $filename       	=   'sanasana_live_feed.txt';
+        $filename       	=   'Google_Data_feed.txt';
         $collection 		= Mage::getModel('catalog/product')->getCollection();
 //        $collection->addAttributeToFilter('list_in_google', array('eq' => 1));
         $collection->addAttributeToFilter('status', Mage_Catalog_Model_Product_Status::STATUS_ENABLED);
@@ -110,7 +110,7 @@ class RSquare_GoogleShoppingFeed_Model_Datafeed extends Mage_Core_Model_Abstract
         fclose($fd);
     }
 
-    protected function _uploadFeed($filename = 'sanasana_live_feed.txt'){
+    protected function _uploadFeed($filename = 'Google_Data_feed.txt'){
         
         $gfile           = Mage::getBaseDir().'/media/productsfeed/'.$filename;
         $file            = Mage::getBaseDir().'/'.$filename;
