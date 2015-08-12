@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <RSquare_GoogleShoppingFeed>
+            <version>1.0.0</version>
+        </RSquare_GoogleShoppingFeed>
+    </modules>
+    <global>
+        <models>
+            <RSquare_GoogleShoppingFeed>
+                <class>RSquare_GoogleShoppingFeed_Model</class>
+            </RSquare_GoogleShoppingFeed>
+        </models>
+    </global>
+    <crontab>
+        <jobs>
+            <google_data_feed>
+                <schedule><cron_expr>0 1 * * *</cron_expr></schedule>
+                <run>
+                    <model>googleshoppingfeed/datafeed::generateFeed</model>
+                </run>
+            </google_data_feed>
+            <google_inventory_feed>
+                <schedule>
+                    <cron_expr>0 /*6 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>googleshoppingfeed/datafeed::generateGoogleInventoryFeed</model>
+                </run>
+            </google_inventory_feed>
+            <upload_inventory_feed>
+                <schedule>
+                    <cron_expr>10 */6 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>googleshoppingfeed/datafeed::uploadGoogleInventoryFeed</model>
+                </run>
+            </upload_inventory_feed>
+        </jobs>
+    </crontab>
+</config>

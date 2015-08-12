@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <RSquare_GoogleShoppingFeed>
+            <active>true</active>
+            <codePool>local</codePool>
+        </RSquare_GoogleShoppingFeed>
+    </modules>
+</config>
